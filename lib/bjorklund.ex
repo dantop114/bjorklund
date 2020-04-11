@@ -5,6 +5,8 @@ defmodule Bjorklund do
     compute_bitmap(divisor, levels, 0)
   end
 
+  def bjorklund(_, _), do: :error
+
   def is_evenly_distributed(seq) do
     [slots, pulses] = [Enum.count(seq), Enum.count(seq, &(&1 == 1))]
     rseq = bjorklund(slots, pulses)
@@ -51,7 +53,7 @@ defmodule Bjorklund do
   end
 
   defp build_string([%{rem: _, count: count} | [_ | t] = l], level) do
-    [reduce_string(l, count - 1, level - 1), reduce_string(t, 0, level - 2)]
+    reduce_string(l, count - 1, level - 1) ++ reduce_string(t, 0, level - 2)
   end
 
   defp build_string([%{rem: 0}], _) do
