@@ -32,6 +32,7 @@ defmodule Bjorklund do
 
   defp compute_bitmap(divisor, [curr | levels], level) do
     curr = %{curr | count: divisor}
+    IO.inspect [curr | levels]
     build_string([curr | levels], level)
   end
 
@@ -42,7 +43,7 @@ defmodule Bjorklund do
   end
 
   defp reduce_string(list, count, level) do
-    Enum.flat_map(0..count, fn _ -> 
+    Enum.flat_map(0..count, fn _ ->
       build_string(list, level)
     end)
     |> List.flatten
@@ -56,12 +57,12 @@ defmodule Bjorklund do
     reduce_string(l, count - 1, level - 1) ++ reduce_string(t, 0, level - 2)
   end
 
-  defp build_string([%{rem: 0}], _) do
-    [0]
+  defp build_string([%{rem: 0, count: c}], _) do
+    reduce_string([], c - 1, -1)
   end
 
-  defp build_string([%{rem: _}], _) do
-    [0, 1]
+  defp build_string([%{rem: _, count: c}], _) do
+    reduce_string([], c - 1, -1) ++ reduce_string([], 0, -2)
   end
 
   defp build_string([], -1), do: [0]
