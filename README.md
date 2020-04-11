@@ -2,7 +2,7 @@
 
 I've read the Godfried Toussaint's work, [The _Euclidean_ Algorithm Generates Traditional Musical Rhythms](http://cgm.cs.mcgill.ca/~godfried/publications/banff.pdf). This paper describes how is possible to generate percussive rhythms using an Euclidean algorithm and how many classical rhythms have a link with this principle. 
 
-The paper also cite the Björklund's work [The Theory of Rep-Rate Pattern Generation in the SNS Timing System](https://pdfs.semanticscholar.org/c652/d0a32895afc5d50b6527447824c31a553659.pdf) where an algorithm to distribute _k_ pulses (1s) in _n_ slots of time and how this algorithm is bounded to the Euclidean principle. 
+The paper also cite the Björklund's work [The Theory of Rep-Rate Pattern Generation in the SNS Timing System](https://pdfs.semanticscholar.org/c652/d0a32895afc5d50b6527447824c31a553659.pdf) where an algorithm to distribute _k_ pulses (1s) in _n_ slots of time is presented and shows how this algorithm is bounded to the Euclidean principle. 
 
 I decided to translate the algorithm in Elixir.
 
